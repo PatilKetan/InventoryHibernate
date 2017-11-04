@@ -27,6 +27,7 @@
 		<property name="current_session_context_class">thread</property>
 		
 		<mapping class="org.ketan.model.Item"/>
+		<mapping class="org.ketan.model.Supplier"/>
  
     </session-factory>
 

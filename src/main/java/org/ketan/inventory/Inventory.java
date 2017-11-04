@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.ketan.model.Item;
+import org.ketan.model.Supplier;
 
 public class Inventory {
 
@@ -16,6 +17,10 @@ public class Inventory {
 		Item juice = Item.getJuiceItem();
 		Item cornFlakes = Item.getCornflakesItem();
 		Item lays = Item.getLaysItem();
+		
+		Supplier jack = Supplier.getJackSupplier();
+		Supplier jim = Supplier.getJimSupplier();
+		Supplier jonny = Supplier.getJonnySupplier();
 		
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		
@@ -26,6 +31,10 @@ public class Inventory {
 			session.save(juice);
 			session.save(cornFlakes);
 			session.save(lays);
+			
+			session.save(jack);
+			session.save(jim);
+			session.save(jonny);
 			
 		session.getTransaction().commit();
 		session.close();
