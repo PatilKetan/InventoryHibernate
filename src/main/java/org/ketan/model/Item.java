@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -30,6 +32,10 @@ public class Item {
 	private String supplierName;
 	
 	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride (name = "city", column = @Column(name = "Supplier_City")),
+		@AttributeOverride (name = "pincode", column = @Column(name = "Supplier_Pincode"))
+	})
 	private Address supplierAddress;
 	
 	@Temporal(TemporalType.DATE)

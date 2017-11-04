@@ -1,10 +1,13 @@
 package org.ketan.helper;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
+	@Column (name = "City")
 	private String city;
+	@Column (name = "Pincode")
 	private String pincode;
 	
 	public Address() {
