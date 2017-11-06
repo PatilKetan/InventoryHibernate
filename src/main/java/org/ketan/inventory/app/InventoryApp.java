@@ -1,4 +1,4 @@
-package org.ketan.inventory;
+package org.ketan.inventory.app;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.ketan.model.Item;
 import org.ketan.model.Supplier;
 
-public class Inventory {
+public class InventoryApp {
 
 	public static void main(String[] args) throws ParseException {
 		//dummy items
@@ -36,35 +36,14 @@ public class Inventory {
 			session.save(jim);
 			session.save(jonny);
 			
-		session.getTransaction().commit();
-		session.close();
-		
-		
-		//*****Reading Object from DB*****
-		session = factory.openSession();
-		session.beginTransaction();
-		
-			//retreive object with id 1
-			Item firstItem = session.get(Item.class, 1);
-			System.out.println("Item with Id 1 : " + firstItem);
-		
-		session.getTransaction().commit();
-		session.close();
-		
-		
-		
-		//*****Reading Object from DB*****
-		session = factory.openSession();
-		session.beginTransaction();
-		
-			List<Item> items = session.createQuery("from Item").getResultList();
+			jack.setItem(juice);
+			jim.setItem(cornFlakes);
+			jonny.setItem(lays);
 			
-			for (Item currentItem : items) {
-				System.out.println(currentItem);
-			}
-		
 		session.getTransaction().commit();
 		session.close();
+		
+
 	}
 
 }

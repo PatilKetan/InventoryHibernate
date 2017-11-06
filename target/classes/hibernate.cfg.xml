@@ -25,9 +25,11 @@
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
-		
+		 
 		<mapping class="org.ketan.model.Item"/>
 		<mapping class="org.ketan.model.Supplier"/>
+		<!-- <mapping class="org.ketan.model.Inventory"/> -->
+		<!-- <mapping class="org.ketan.demo.Proxy"/> -->
  
     </session-factory>
 
