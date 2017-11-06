@@ -33,38 +33,20 @@ public class InventoryApp {
 			session.save(lays);
 			
 			session.save(jack);
-			session.save(jim);
-			session.save(jonny);
 			
-		session.getTransaction().commit();
-		session.close();
-		
-		
-		//*****Reading Object from DB*****
-		session = factory.openSession();
-		session.beginTransaction();
-		
-			//retreive object with id 1
-			Item firstItem = session.get(Item.class, 1);
-			System.out.println("Item with Id 1 : " + firstItem);
-		
-		session.getTransaction().commit();
-		session.close();
-		
-		
-		
-		//*****Reading Objects from DB*****
-		session = factory.openSession();
-		session.beginTransaction();
-		
-			List<Item> items = session.createQuery("from Item").getResultList();
+			jack.getItemList().add(juice);
+			jack.getItemList().add(cornFlakes);
+			jack.getItemList().add(lays);
 			
-			for (Item currentItem : items) {
-				System.out.println(currentItem);
-			}
-		
+			/* this is optional
+			*
+			* juice.setSupplier(jack);
+			* cornFlakes.setSupplier(jack);
+			* lays.setSupplier(jack);
+			* */
 		session.getTransaction().commit();
 		session.close();
+		
 	}
 
 }

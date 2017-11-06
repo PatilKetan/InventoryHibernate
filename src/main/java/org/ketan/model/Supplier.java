@@ -1,4 +1,12 @@
+/*This is demo for One to Many mapping
+ * we assume here that one supplier can have / provide
+ * many items
+ */
 package org.ketan.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -8,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.ketan.helper.Address;
@@ -26,6 +35,8 @@ public class Supplier {
 		@AttributeOverride (name = "pincode", column = @Column(name = "Supplier_Pincode"))
 	})
 	private Address address;
+	@OneToMany
+	private List<Item> itemList = new ArrayList<Item>();
 	
 	
 	public Supplier() {
@@ -54,6 +65,12 @@ public class Supplier {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public List<Item> getItemList() {
+		return itemList;
+	}
+	public void setItemList(List<Item> item) {
+		this.itemList = item;
 	}
 	
 	

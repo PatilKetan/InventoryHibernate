@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -35,7 +36,9 @@ public class Item {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Expiry_Date")
 	private Date expiryDate;
-
+	
+	@ManyToOne
+	private Supplier supplier;
 	
 	public Item() {
 	}
@@ -70,7 +73,12 @@ public class Item {
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
-	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
 	
 	@Override
 	public String toString() {
