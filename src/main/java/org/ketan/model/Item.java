@@ -1,8 +1,16 @@
+/*This is demo for Many to Many mapping
+ * we assume here that one supplier can have many items
+ * and a item can have multiple suppliers
+ * many items
+ */
+
 package org.ketan.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -12,6 +20,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,8 +47,9 @@ public class Item {
 	@Column(name = "Expiry_Date")
 	private Date expiryDate;
 	
-	@ManyToOne
-	private Supplier supplier;
+	@ManyToMany
+	private List<Supplier> supplierList = new ArrayList<Supplier>();
+	
 	
 	public Item() {
 	}
@@ -73,11 +84,11 @@ public class Item {
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
-	public Supplier getSupplier() {
-		return supplier;
+	public List<Supplier> getSupplierList() {
+		return supplierList;
 	}
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
+	public void setSupplierList(List<Supplier> supplierList) {
+		this.supplierList = supplierList;
 	}
 	
 	@Override

@@ -36,14 +36,10 @@ public class InventoryApp {
 			
 			jack.getItemList().add(juice);
 			jack.getItemList().add(cornFlakes);
-			jack.getItemList().add(lays);
 			
-			/* this is optional
-			*
-			* juice.setSupplier(jack);
-			* cornFlakes.setSupplier(jack);
-			* lays.setSupplier(jack);
-			* */
+			juice.getSupplierList().add(jack);
+			cornFlakes.getSupplierList().add(jack);
+			
 		session.getTransaction().commit();
 		session.close();
 		

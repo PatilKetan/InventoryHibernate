@@ -1,5 +1,6 @@
-/*This is demo for One to Many mapping
- * we assume here that one supplier can have / provide
+/*This is demo for Many to Many mapping
+ * we assume here that one supplier can have many items
+ * and a item can have multiple suppliers
  * many items
  */
 package org.ketan.model;
@@ -16,6 +17,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,7 +37,8 @@ public class Supplier {
 		@AttributeOverride (name = "pincode", column = @Column(name = "Supplier_Pincode"))
 	})
 	private Address address;
-	@OneToMany
+	
+	@ManyToMany(mappedBy = "supplierList")
 	private List<Item> itemList = new ArrayList<Item>();
 	
 	
