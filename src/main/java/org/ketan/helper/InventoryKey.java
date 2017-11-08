@@ -11,6 +11,8 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class InventoryKey implements Serializable{
+	
+	private static final long serialVersionUID = 17202327L;
 	@Column (name = "Item_Id")
 	private int itemId;
 	@Column (name = "Supplier_Id")

@@ -27,7 +27,7 @@ public class Address {
 		return pincode;
 	}
 	public void setPincode(String pincode) {
-		pincode = pincode;
+		this.pincode = pincode;
 	}
 	
 	@Override
